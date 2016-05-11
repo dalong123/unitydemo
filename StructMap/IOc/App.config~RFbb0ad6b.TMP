@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration" />
+  </configSections>
+  <unity xmlns="http://schemas.microsoft.com/practices/2010/unity">
+    <namespace name="IOc" />
+    <assembly name="IOc" />
+    <namespace name="Ioc2" />
+    <assembly name="Ioc2" />
+    <alias alias="IUser" type="IOc.IUser, IUser" />
+    <alias alias="IUser2" type="Ioc2.IUser, IUser" />
+    <alias alias="User" type="IOc.User, User" />
+
+    <alias alias="User2" type="Ioc2.User, User" />
+    <container name="first">
+
+      <register type="IUser" mapTo="User"  ></register>
+      <register type="IUser2" mapTo="User2" ></register>
+
+    </container>
+
+  </unity>
+</configuration>

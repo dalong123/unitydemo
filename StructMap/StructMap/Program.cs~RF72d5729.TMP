@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Security.Cryptography;
+using WebDAVSharp.Server.Stores.DiskStore;
+using WebDAVSharp.Server.Adapters;
+
+namespace StructMap
+{
+    class Program
+    {
+     
+
+        public static void Main()
+        {
+
+
+
+            WebDavDiskStore  store=new WebDavDiskStore(".");
+            HttpListenerAdapter http = new HttpListenerAdapter();
+            WebDAVSharp.Server.WebDavServer server = new WebDAVSharp.Server.WebDavServer(store);
+            server.Listener.Prefixes.Add("http://10.2.132.19:8089/files");
+            server.Start();
+            Console.ReadLine();
+
+        }
+    }
+}

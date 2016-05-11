@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+
+  <configSections>
+    <section name="unity"
+              type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection,
+               Microsoft.Practices.Unity.Configuration, Version=1.1.0.0,
+               Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+  </configSections>
+
+  <unity>
+
+    <typeAliases>
+
+      <!-- Lifetime manager types -->
+      <typeAlias alias="singleton"
+           type="Microsoft.Practices.Unity.ContainerControlledLifetimeManager,
+             Microsoft.Practices.Unity" />
+      <typeAlias alias="external"
+           type="Microsoft.Practices.Unity.ExternallyControlledLifetimeManager,
+             Microsoft.Practices.Unity" />
+
+      <!-- Custom object types -->
+      <typeAlias alias="IUser"
+           type="IOc.IUser, IUser" />
+    </typeAliases>
+
+    <containers>
+
+      <container name="containerOne">
+
+        <types>
+
+          <!-- Default (un-named) mapping for IMyInterface to MyRealObject-->
+          <type type="IUser" mapTo="User" />
+
+          <!-- Named mapping for ILogger to StandardLogger-->
+          <type type="IUser" mapTo="User" name="StandarUser">
+            <lifetime type="singleton" />
+          </type>
+
+        </types>
+
+      </container>
+
+    </containers>
+
+  </unity>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+  </startup>
+</configuration>

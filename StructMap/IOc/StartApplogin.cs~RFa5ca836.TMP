@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace IOc
+{
+    public class StartApplogin<TyService> : IAppLogin,IUser
+    {
+
+        TyService service;
+        public TyService GetTypeService()
+        {
+
+            service = (TyService)Activator.CreateInstance(typeof(TyService));
+            return service;
+
+        }
+
+        public TyService1 GetTypeService<TyService1>()
+        {
+            TyService1 obj = (TyService1)Activator.CreateInstance(typeof(TyService));
+            return obj;
+
+        }
+
+        public void login()
+        {
+
+            
+            
+            Console.WriteLine("start Applogin");
+        }
+
+        public void logout()
+        {
+            Console.WriteLine("start Applogout");
+        }
+
+        bool IUser.login()
+        {
+             
+        }
+    }
+}

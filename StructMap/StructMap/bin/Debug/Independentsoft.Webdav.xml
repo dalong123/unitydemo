@@ -1,0 +1,2794 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Independentsoft.Webdav</name>
+    </assembly>
+    <members>
+        <member name="T:Independentsoft.Webdav.WebdavSession">
+            <summary>
+            This class is for the session management of Resource class.
+            </summary>
+            <example>
+            The following example demonstrates how to use this class: 
+            <code>
+            NetworkCredential credential = new NetworkCredential("Administrator","password123");
+            WebdavSession session = new WebdavSession(credential);
+            </code>
+            </example>
+        </member>
+        <member name="M:Independentsoft.Webdav.WebdavSession.#ctor">
+            <summary>
+            Initializes a new instance of the WebdavSession class.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.WebdavSession.#ctor(System.Net.ICredentials)">
+            <summary>
+            Initializes a new instance of the WebdavSession class.
+            </summary>
+            <param name="credentials">An ICredentials containing the authentication credentials</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.WebdavSession.#ctor(System.Net.WebProxy)">
+            <summary>
+            Initializes a new instance of the WebdavSession class with proxy support.
+            </summary>
+            <param name="proxy">The proxy information for the session.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.WebdavSession.#ctor(System.Net.ICredentials,System.Net.WebProxy)">
+            <summary>
+            Initializes a new instance of the WebdavSession class.
+            </summary>
+            <param name="credentials">An ICredentials containing the authentication credentials</param>
+            <param name="proxy">The proxy information for the session.</param>
+        </member>
+        <member name="P:Independentsoft.Webdav.WebdavSession.Proxy">
+            <summary>
+            Gets or sets proxy information for the session.
+            </summary>
+            <remarks>
+            The Proxy property identifies the WebProxy instance
+            to use to process requests to Internet resources.
+            </remarks>
+        </member>
+        <member name="P:Independentsoft.Webdav.WebdavSession.Credentials">
+            <summary>
+            Gets or sets the network credentials used to authenticate the request 
+            with the Internet resource.
+            </summary>
+            <remarks>
+            The Credentials property contains the authentication credentials 
+            required to access the Internet resource.
+            </remarks>
+        </member>
+        <member name="T:Independentsoft.Webdav.Properties.Source">
+            <summary>
+            This class models <c>Source</c> WebDAV property.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Properties.WebdavProperty">
+            <summary>
+            Abstract class, models Webdav property.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Properties.WebdavProperty.Namespace">
+            <summary>
+            The DAV namespace.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Properties.Source.Name">
+            <summary>
+            The property name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Properties.Source.#ctor">
+            <summary>
+            Initializes a new instance of the Source class.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Properties.Source.Link">
+            <summary>
+            Gets or sets a Link
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Methods.WebdavMethod">
+            <summary>
+            Abstract parent class for all method classes.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Methods.WebdavMethod.ContentType">
+            <summary>
+            The content type fot all Webdav methods.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Methods.UnlockMethod">
+            <summary>
+            This class implements the WebDAV UNLOCK Method.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Methods.UnlockMethod.MethodName">
+            <summary>
+            The method name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.UnlockMethod.#ctor">
+            <summary>
+            Initializes a new instance of the UnlockMethod class.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Properties.GetETag">
+            <summary>
+            Contains the ETag header value.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Properties.GetETag.Name">
+            <summary>
+            The property name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Properties.GetETag.#ctor">
+            <summary>
+            Initializes a new instance of the GetETag class.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Properties.DisplayName">
+            <summary>
+            Provides a name for the resource that is suitable for presentation to a user.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Properties.DisplayName.Name">
+            <summary>
+            The property name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Properties.DisplayName.#ctor">
+            <summary>
+            Default constructor for the property.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Methods.PropPatchMethod">
+            <summary>
+            This class implements the WebDAV PROPPATCH Method.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Methods.PropPatchMethod.MethodName">
+            <summary>
+            The method name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.PropPatchMethod.#ctor">
+            <summary>
+            Initializes a new instance of the PropPatchMethod class.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.PropPatchMethod.AddPropertyToSet(Independentsoft.Webdav.Property)">
+            <summary>
+            Add a property to set.
+            </summary>
+            <param name="property">A property to set.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.PropPatchMethod.AddPropertyToRemove(Independentsoft.Webdav.Property)">
+            <summary>
+            Add a property to remove.
+            </summary>
+            <param name="property">A property to remove.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.PropPatchMethod.GenerateRequestBody">
+            <summary>
+            Generates the request body of this method.
+            </summary>
+            <returns>Request body as xml string.</returns>
+        </member>
+        <member name="T:Independentsoft.Webdav.ActiveLock">
+            <summary>
+            ActiveLock contains information about lock on a resource.
+            </summary>
+            <remarks>
+            The information can be used to provide details when obtaining locks, 
+            or for holding results from lock queries.
+            </remarks> 
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.#ctor">
+            <summary>
+            Initializes a new instance of the ActiveLock class.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the ActiveLock class.
+            </summary>
+            <param name="depth">The depth of the lock. Allowed values are: <c>Depth.Zero</c> means only this resource is locked, <c>Depth.Infinity</c> means this resource and recursively all its subresources are locked.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the ActiveLock class.
+            </summary>
+            <param name="depth">The depth of the lock. Allowed values are: <c>Depth.Zero</c> means only this resource is locked, <c>Depth.Infinity</c> means this resource and recursively all its subresources are locked.</param>
+            <param name="timeout">The lock timeout in seconds.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the ActiveLock class.
+            </summary>
+            <param name="depth">The depth of the lock. Allowed values are: <c>Depth.Zero</c> means only this resource is locked, <c>Depth.Infinity</c> means this resource and recursively all its subresources are locked.</param>
+            <param name="timeout">The lock timeout in seconds.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the ActiveLock class.
+            </summary>
+            <param name="timeout">The lock timeout in seconds.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.#ctor(Independentsoft.Webdav.LockScope,System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the ActiveLock class.
+            </summary>
+            <param name="scope">The scope of the lock, exclusive or shared.<seealso cref="T:Independentsoft.Webdav.LockScope"/></param>
+            <param name="depth">The depth of the lock. Allowed values are: <c>Depth.Zero</c> means only this resource is locked, <c>Depth.Infinity</c> means this resource and recursively all its subresources are locked.</param>
+            <param name="timeout">The lock timeout in seconds.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.#ctor(Independentsoft.Webdav.LockScope,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the ActiveLock class.
+            </summary>
+            <param name="scope">The scope of the lock, exclusive or shared.<seealso cref="T:Independentsoft.Webdav.LockScope"/></param>
+            <param name="depth">The depth of the lock. Allowed values are: <c>Depth.Zero</c> means only this resource is locked, <c>Depth.Infinity</c> means this resource and recursively all its subresources are locked.</param>
+            <param name="timeout">The lock timeout as either "Second-n" (where "n" is number between 0 and 4294967295) or "Infinite".</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.#ctor(Independentsoft.Webdav.LockScope,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the ActiveLock class.
+            </summary>
+            <param name="scope">The scope of the lock, exclusive or shared.<seealso cref="T:Independentsoft.Webdav.LockScope"/></param>
+            <param name="depth">The depth of the lock. Allowed values are: <c>Depth.Zero</c> means only this resource is locked, <c>Depth.Infinity</c> means this resource and recursively all its subresources are locked.</param>
+            <param name="timeout">The lock timeout as either \"Second-n\" (where "n" is number between 0 and 4294967295) or "Infinite".</param>
+            <param name="owner">Contains useful information that can be used to identify the owner of the lock (ie. link to a home page, an e-mail address, phone number, etc.)</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.#ctor(Independentsoft.Webdav.LockScope,System.String,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the ActiveLock class.
+            </summary>
+            <param name="scope">The scope of the lock, exclusive or shared.<seealso cref="T:Independentsoft.Webdav.LockScope"/></param>
+            <param name="depth">The depth of the lock. Allowed values are: <c>Depth.Zero</c> means only this resource is locked, <c>Depth.Infinity</c> means this resource and recursively all its subresources are locked.</param>
+            <param name="timeout">The lock timeout in seconds.</param>
+            <param name="owner">Contains useful information that can be used to identify the owner of the lock (ie. link to a home page, an e-mail address, phone number, etc.)</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.#ctor(Independentsoft.Webdav.LockScope,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the ActiveLock class.
+            </summary>
+            <param name="scope">The scope of the lock, exclusive or shared.<seealso cref="T:Independentsoft.Webdav.LockScope"/></param>
+            <param name="depth">The depth of the lock. Allowed values are: <c>Depth.Zero</c> means only this resource is locked, <c>Depth.Infinity</c> means this resource and recursively all its subresources are locked.</param>
+            <param name="timeout">The lock timeout as either "Second-n" (where "n" is number between 0 and 4294967295) or "Infinite".</param>
+            <param name="owner">Contains useful information that can be used to identify the owner of the lock (ie. link to a home page, an e-mail address, phone number, etc.)</param>
+            <param name="type">The type of the lock. The only legal DAV value currently is "write".<seealso cref="T:Independentsoft.Webdav.LockType"/></param>
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.#ctor(Independentsoft.Webdav.LockScope,System.String,System.Int32,System.String,System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the ActiveLock class.
+            </summary>
+            <param name="scope">The scope of the lock, exclusive or shared.<seealso cref="T:Independentsoft.Webdav.LockScope"/></param>
+            <param name="depth">The depth of the lock. Allowed values are: <c>Depth.Zero</c> means only this resource is locked, <c>Depth.Infinity</c> means this resource and recursively all its subresources are locked.</param>
+            <param name="timeout">The lock timeout in seconds.</param>
+            <param name="owner">Contains useful information that can be used to identify the owner of the lock (ie. link to a home page, an e-mail address, phone number, etc.)</param>
+            <param name="type">The type of the lock. The only legal DAV value currently is "write".<seealso cref="T:Independentsoft.Webdav.LockType"/></param>
+            <param name="token">The lock token corresponding to a lock on a resource.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.#ctor(Independentsoft.Webdav.LockScope,System.String,System.String,System.String,System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the ActiveLock class.
+            </summary>
+            <param name="scope">The scope of the lock, exclusive or shared.<seealso cref="T:Independentsoft.Webdav.LockScope"/></param>
+            <param name="depth">The depth of the lock. Allowed values are: <c>Depth.Zero</c> means only this resource is locked, <c>Depth.Infinity</c> means this resource and recursively all its subresources are locked.</param>
+            <param name="timeout">The lock timeout as either "Second-n" (where "n" is number between 0 and 4294967295) or "Infinite".</param>
+            <param name="owner">Contains useful information that can be used to identify the owner of the lock (ie. link to a home page, an e-mail address, phone number, etc.)</param>
+            <param name="type">The type of the lock. The only legal DAV value currently is "write".<seealso cref="T:Independentsoft.Webdav.LockType"/></param>
+            <param name="token">The lock token corresponding to a lock on a resource.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.#ctor(Independentsoft.Webdav.LockScope,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the ActiveLock class.
+            </summary>
+            <param name="scope">The scope of the lock, exclusive or shared.<seealso cref="T:Independentsoft.Webdav.LockScope"/></param>
+            <param name="depth">The depth of the lock. Allowed values are: <c>Depth.Zero</c> means only this resource is locked, <c>Depth.Infinity</c> means this resource and recursively all its subresources are locked.</param>
+            <param name="timeout">The lock timeout as either "Second-n" (where "n" is number between 0 and 4294967295) or "Infinite".</param>
+            <param name="owner">Contains useful information that can be used to identify the owner of the lock (ie. link to a home page, an e-mail address, phone number, etc.)</param>
+            <param name="type">The type of the lock. The only legal DAV value currently is "write".<seealso cref="T:Independentsoft.Webdav.LockType"/></param>
+            <param name="token">The lock token corresponding to a lock on a resource.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.#ctor(Independentsoft.Webdav.LockScope,System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the ActiveLock class.
+            </summary>
+            <param name="scope">The scope of the lock, exclusive or shared.<seealso cref="T:Independentsoft.Webdav.LockScope"/></param>
+            <param name="depth">The depth of the lock. Allowed values are: <c>Depth.Zero</c> means only this resource is locked, <c>Depth.Infinity</c> means this resource and recursively all its subresources are locked.</param>
+            <param name="timeout">The lock timeout in seconds.</param>
+            <param name="owner">Contains useful information that can be used to identify the owner of the lock (ie. link to a home page, an e-mail address, phone number, etc.)</param>
+            <param name="type">The type of the lock. The only legal DAV value currently is "write".<seealso cref="T:Independentsoft.Webdav.LockType"/></param>
+            <param name="token">The lock token corresponding to a lock on a resource.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.GetTimeoutAsSeconds">
+            <summary>
+            Return timeout value in seconds.
+            </summary>
+            <returns>Number of seconds.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.ActiveLock.ToString">
+            <summary>
+            Represent object as a string.
+            </summary>
+            <returns>String representation of the instance.</returns>
+        </member>
+        <member name="P:Independentsoft.Webdav.ActiveLock.Scope">
+            <summary>
+            Gets or sets the scope of the lock. 
+            <seealso cref="T:Independentsoft.Webdav.LockScope"/>
+            </summary>
+            <remarks>
+            See section 6.1 of RFC2518 for a description of shared vs. exclusive locks.
+            </remarks>
+        </member>
+        <member name="P:Independentsoft.Webdav.ActiveLock.Type">
+            <summary>
+             Gets or sets the type of lock.
+            </summary>
+            <remarks>
+            The only legal DAV value currently is "write". 
+            <seealso cref="T:Independentsoft.Webdav.LockType"/>
+            </remarks>
+        </member>
+        <member name="P:Independentsoft.Webdav.ActiveLock.Depth">
+            <summary>
+            Gets or sets the depth of the lock.
+            </summary>
+            <remarks>
+            The depth of the lock. Allowed values are: <c>Depth.Zero</c> means only this resource is locked, 
+            <c>Depth.Infinity</c> means this resource and recursively all its subresources are locked. 
+            A lock value of Depth.Zero on a collection 
+            will lock just the collection but not it's members, whereas 
+            a lock value of Depth.Infinite will lock the collection and all of it's members. 
+            <seealso cref="P:Independentsoft.Webdav.ActiveLock.Depth"/>
+            </remarks>
+        </member>
+        <member name="P:Independentsoft.Webdav.ActiveLock.Timeout">
+             <summary>
+             Gets or sets a lock timeout.
+             The lock timeout as either "Second-n" (where "n" is number between 0 and 4294967295) or "Infinite".
+            <see cref="F:Independentsoft.Webdav.Methods.LockMethod.InfiniteTimeout"/> 
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.ActiveLock.Owner">
+            <summary>
+            Gets or sets who locked this resource.
+            </summary>
+            <remarks>
+            Contains useful information that can be used to identify the owner of the lock (ie. link to a home page, an e-mail address, phone number, etc.)
+            </remarks>
+        </member>
+        <member name="P:Independentsoft.Webdav.ActiveLock.Token">
+            <summary>
+            Gets or sets a lock token.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Util">
+            <summary>
+            Summary description for Util.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Util.EncodeUrl(System.String)">
+            <summary>
+             Method to encode any string into a URL-safe form. 
+             Non-ASCII characters are first encoded as sequences of 
+             two or three bytes, using the UTF-8 algorithm, before being
+             encoded as %HH escapes. 
+            </summary>
+            <param name="url">The URL to be encoded.</param>
+            <returns>The encoded URL.</returns>
+            <remarks>
+            Encode a string to the "x-www-form-urlencoded" form, enhanced 
+            with the UTF-8-in-URL proposal. This is what happens: 
+            
+            The ASCII characters 'a' through 'z', 'A' through 'Z',
+            and '0' through '9' remain the same. 
+            
+            The unreserved characters - _ . ! ~ * ' ( ) remain the same. 
+            The space character ' ' is converted into a plus sign '+'. 
+            
+            All other ASCII characters are converted into the 
+            3-character string "%xy", where xy is the two-digit 
+            hexadecimal representation of the character code 
+            
+            All non-ASCII characters are encoded in two steps: first 
+            secondly each of these bytes is encoded as "%xx". 
+            </remarks>
+        </member>
+        <member name="T:Independentsoft.Webdav.Methods.DeleteMethod">
+            <summary>
+            This class implements the WebDAV DELETE Method.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Methods.DeleteMethod.MethodName">
+            <summary>
+            The method name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.DeleteMethod.#ctor">
+            <summary>
+            Initializes a new instance of the DeleteMethod class.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Prop">
+            <summary>
+            Contains properties related to a resource.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Prop.#ctor">
+            <summary>
+            Initializes a new instance of the Prop class.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Prop.Property">
+            <summary>
+            Gets  properties.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Methods.GetMethod">
+            <summary>
+            This class implements the WebDAV GET Method.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Methods.GetMethod.MethodName">
+            <summary>
+            The method name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.GetMethod.#ctor">
+            <summary>
+            Initializes a new instance of the GetMethod class.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.DownloadProgressEventHandler">
+            <summary>
+            Represents the method that will handle the DownloadProgress event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">A <see cref="T:Independentsoft.Webdav.ProgressEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.FileDownload.Abort">
+            <summary>
+            Cancels an asynchronous download.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.ContentRange">
+            <summary>
+            Represents content range.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.ContentRange.#ctor">
+            <summary>
+            Creates new instance of the ContentRange.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.ContentRange.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates new instance of the ContentRange.
+            </summary>
+            <param name="start">Start byte.</param>
+            <param name="end">End byte.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.ContentRange.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates new instance of the ContentRange.
+            </summary>
+            <param name="start">Start byte.</param>
+            <param name="end">End byte.</param>
+            <param name="length">File size.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.ContentRange.ToString">
+            <summary>
+            Represent object as a string.
+            </summary>
+            <returns>String representation of the instance.</returns>
+        </member>
+        <member name="P:Independentsoft.Webdav.ContentRange.Start">
+            <summary>
+            Sets or gets start byte.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.ContentRange.End">
+            <summary>
+            Sets or gets end byte.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.ContentRange.Length">
+            <summary>
+            Sets or gets length.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Properties.GetLastModified">
+            <summary>
+            Contains the Last-Modified header value.
+            This property indicates the last time the resource was modified.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Properties.GetLastModified.Name">
+            <summary>
+            The property name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Properties.GetLastModified.#ctor">
+            <summary>
+            Initializes a new instance of the GetLastModified class.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Methods.PostMethod">
+            <summary>
+            This class implements the WebDAV POST Method.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Methods.PostMethod.MethodName">
+            <summary>
+            The method name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.PostMethod.#ctor">
+            <summary>
+            Initializes a new instance of the PostMethod class.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.UploadProgressEventHandler">
+            <summary>
+            Represents the method that will handle the UploadProgress event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">A <see cref="T:Independentsoft.Webdav.ProgressEventArgs"/> that contains the event data.</param>
+        </member>
+        <member name="T:Independentsoft.Webdav.FileUpload">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.FileUpload.#ctor(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="bufferSize"></param>
+        </member>
+        <member name="M:Independentsoft.Webdav.FileUpload.Abort">
+            <summary>
+            Cancels an asynchronous upload.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.PropertyName">
+            <summary>
+            This class represents the universal name for a property.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.PropertyName.#ctor">
+            <summary>
+            Initializes a new instance of the PropertyName class.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.PropertyName.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the PropertyName class with specified source 
+            and namespace <c>DAV:</c> .
+            </summary>
+            <param name="name">Property local name</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.PropertyName.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the PropertyName class with specified with name and namespace.
+            </summary>
+            <param name="name">Property name</param>
+            <param name="ns">Property namespace</param>
+        </member>
+        <member name="P:Independentsoft.Webdav.PropertyName.Namespace">
+            <summary>
+            Gets or sets property namespace.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.PropertyName.Name">
+            <summary>
+            Gets or sets property name.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Property">
+            <summary>
+            This class models one property of a resource.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Property.#ctor">
+            <summary>
+            Initializes a new instance of the Property class.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Property.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the Property class.
+            </summary>
+            <param name="name">The property name.</param>
+            <param name="ns">the roperty namespace.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Property.#ctor(Independentsoft.Webdav.PropertyName)">
+            <summary>
+            Initializes a new instance of the Property class.
+            </summary>
+            <param name="propertyName">The name of property.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Property.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the Property from XML string.
+            </summary>
+            <param name="xml">String containing the property as XML.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Property.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the Property class.
+            </summary>
+            <param name="name">A property name.</param>
+            <param name="ns">A property namespace.</param>
+            <param name="value">A property value.</param>
+        </member>
+        <member name="P:Independentsoft.Webdav.Property.Namespace">
+            <summary>
+            Gets or sets a property namespace.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Property.Name">
+            <summary>
+            Gets or sets a property name.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Property.Value">
+            <summary>
+            Gets or sets a property value.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Property.DecodedValue">
+            <summary>
+            Gets a decoded property value.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Property.OuterXml">
+            <summary>
+            Gets or sets a property value.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Properties.ResourceType">
+            <summary>
+            Specifies the nature of the resource.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Properties.ResourceType.Name">
+            <summary>
+            The property name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Properties.ResourceType.#ctor">
+            <summary>
+            Initializes a new instance of the ResourceType class.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Properties.CreationDate">
+            <summary>
+            Records the time and date the resource was created.
+            Contains a timestamp of the moment when the resource was created
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Properties.CreationDate.Name">
+            <summary>
+            The property name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Properties.CreationDate.#ctor">
+            <summary>
+            Initializes a new instance of the CreationDate class.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Properties.GetContentLanguage">
+            <summary>
+            Contains the Content-Language header value.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Properties.GetContentLanguage.Name">
+            <summary>
+            The property name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Properties.GetContentLanguage.#ctor">
+            <summary>
+            Initializes a new instance of the GetContentLanguage class.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Methods.CopyMethod">
+            <summary>
+            This class implements the WebDAV COPY Method.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Methods.CopyMethod.MethodName">
+            <summary>
+            The method name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.CopyMethod.#ctor">
+            <summary>
+            Initializes a new instance of the CopyMethod class.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.CopyMethod.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the CopyMethod class with specified source and destination.
+            </summary>
+            <param name="source">The URI of the resource to copy.</param>
+            <param name="destination">The URI of the destination resource.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.CopyMethod.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Construct CopyMethod object with specified source and destination.
+            </summary>
+            <param name="source">The URI of the resource to copy.</param>
+            <param name="destination">The URI of the destination resource.</param>
+            <param name="overwrite">True to allow an existing resource to be overwritten; otherwise, false.</param>
+        </member>
+        <member name="P:Independentsoft.Webdav.Methods.CopyMethod.Source">
+            <summary>
+            Gets or sets URI of the resource to copy.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Methods.CopyMethod.Destination">
+            <summary>
+            Gets or sets URI of the destination.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Methods.CopyMethod.Overwrite">
+            <summary>
+            Gets or set a value indicating whether a overwrite is allowed 
+            if destination resource already exist.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Properties.GetContentLength">
+            <summary>
+            Contains the Content-Length header value.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Properties.GetContentLength.Name">
+            <summary>
+            The property name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Properties.GetContentLength.#ctor">
+            <summary>
+            Initializes a new instance of the GetContentLength class.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.DavProperty">
+            <summary>
+            Contains properties from "DAV:" namespace.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Resource">
+            <summary>
+            The class Resource is an abstract representation for WebDAV resource.
+            </summary>
+            <example>
+            The following example demonstrates how to use this class: 
+            <code>
+            NetworkCredential credential = new NetworkCredential("Administrator","password123");
+            WebdavSession session = new WebdavSession(credential);
+            
+            Resource resource = new Resource(session);
+            </code>
+            </example>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.#ctor">
+            <summary>
+            Initializes a new instance of the Resource class.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the Resource class specified by address.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.#ctor(Independentsoft.Webdav.WebdavSession)">
+            <summary>
+            Initializes a new instance of the Resource class.
+            </summary>
+            <param name="session">A session to assign to resource.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.#ctor(Independentsoft.Webdav.WebdavSession,System.String)">
+            <summary>
+            Initializes a new instance of the Resource class.
+            </summary>
+            <param name="session">A session to assign to resource.</param>
+            <param name="address">The URI that identifies the resource.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetRequest(System.String,System.String)">
+            <summary>
+            Gets the HttpWebRequest object for the current HTTP request.
+            </summary>
+            <param name="address">A resource address</param>
+            <param name="methodName">WebDAV (or HTTP) method name</param>
+            <returns>Created request object.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.CreateFolder(System.String)">
+            <summary>
+            Create a folder with the given URI. The method is same as <c>CreateCollection</c>.
+            </summary>
+            <remarks>
+            Any folder specified in address is created, unless already exist or unless 
+            some part of address is invalid. 
+            The path parameter specifies the new folder path, not a file path.
+            </remarks>
+            <param name="address">The URI of new folder</param>
+            <returns>True if the folder created; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.CreateCollection(System.String)">
+            <summary>
+            Create a collection with the given URI. The method is same as <c>CreateFolder</c>.
+            </summary>
+            <remarks>
+            Any collection specified in address is created, unless already exist or unless 
+            some part of address is invalid. 
+            The path parameter specifies a collection path, not a file path.
+            </remarks>
+            <param name="address">The URI of new collection</param>
+            <returns>True if the collection created; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetAllowedMethods">
+            <summary>
+            Gets the all allowed methods.
+            </summary>
+            <returns>Returns names of allowed methods.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetAllowedMethods(System.String)">
+            <summary>
+            Gets the all allowed methods.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>Return names of allowed methods.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetSupportedDavLevel">
+            <summary>
+            Gets the <c>DAV</c> header value.
+            </summary>
+            <returns>DAV header values</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetSupportedDavLevel(System.String)">
+            <summary>
+            Gets the <c>DAV</c> header value.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>DAV header values</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Options">
+            <summary>
+            Executes OPTIONS Http protocol method.
+            </summary>
+            <returns>WebHeaderCollection contains headers key/value pairs.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Options(System.String)">
+            <summary>
+            Executes OPTIONS Http protocol method.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>WebHeaderCollection contains headers key/value pairs.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Head">
+            <summary>
+            Executes HEAD Http protocol method.
+            </summary>
+            <returns>WebHeaderCollection contains headers key/value pairs.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Head(System.String)">
+            <summary>
+            Executes HEAD Http protocol method.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>WebHeaderCollection contains headers key/value pairs.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Delete">
+            <summary>
+            Deletes the current resource.
+            </summary>
+            <returns>True if success; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Delete(System.String)">
+            <summary>
+            Deletes the resource specified with URI.
+            </summary>
+            <param name="address">The URI that identifies the resource to be deleted.</param>
+            <returns>True if success; otherwise, false</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetProperty(System.String)">
+            <summary>
+            Gets the property from a resource.
+            </summary>
+            <param name="propertyName">The name of the property to retrieve. Property namespace is "DAV:"</param>
+            <returns>The requested property.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetProperty(System.String,System.String)">
+            <summary>
+             Gets the property from a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="propertyName">The name of the property to retrieve. Property namespace is "DAV:"</param>
+            <returns>The requested property.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetProperty(Independentsoft.Webdav.PropertyName)">
+            <summary>
+            Gets the property from a resource.
+            </summary>
+            <param name="propertyName">The name of the property to retrieve.</param>
+            <returns>The requested property.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetProperty(System.String,Independentsoft.Webdav.PropertyName)">
+            <summary>
+            Gets the property from a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="propertyName">The name of the property to retrieve.</param>
+            <returns>The requested property.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetProperties(Independentsoft.Webdav.PropertyName[],System.String)">
+            <summary>
+            Gets properties from a resource.
+            </summary>
+            <param name="propertyName">The names of the property to retrieve.</param>
+            <param name="depth">The depth of the request.</param>
+            <returns>A MultiStatus as a result.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetProperties(System.String,Independentsoft.Webdav.PropertyName[],System.String)">
+            <summary>
+            Gets properties from a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="propertyName">The names of the property to retrieve.</param>
+            <param name="depth">The depth of the request.</param>
+            <returns>A MultiStatus as a result.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetPropertiesAsXml">
+            <summary>
+            Gets all properties from the resource.
+            </summary>
+            <returns>An array of properties as xml strings.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetPropertiesAsXml(System.String)">
+            <summary>
+            Gets all properties from the resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>An array of properties as xml strings.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetProperties">
+            <summary>
+            Gets all properties from the resource.
+            </summary>
+            <returns>An array of properties.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetProperties(System.String)">
+            <summary>
+            Gets all properties from the resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>An array of properties.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetProperties(System.String,System.String)">
+            <summary>
+            Gets all properties from the resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="depth">The depth of the request.</param>
+            <returns>A MultiStatus response as a result of operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetPropertyNames">
+            <summary>
+            Gets all properties names from a resource.
+            </summary>
+            <returns>An array of property names.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetPropertyNames(System.String)">
+            <summary>
+            Gets all properties names from a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>An array of property names.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetPropertyNames(System.String,System.String)">
+            <summary>
+            Gets all properties names from a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="depth">The depth of the request.</param>
+            <returns>A MultiStatus response as a result of operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.ChangeProperty(Independentsoft.Webdav.Property[],Independentsoft.Webdav.PropertyName[])">
+            <summary>
+            Sets (adds) and removes properties to/from a resource.
+            </summary>
+            <param name="addProperty">Array of properties to set (add).</param>
+            <param name="removeProperty">Array of properties to remove.</param>
+            <returns>A MultiStatus response as a result of operation.</returns>
+            <example>
+            The following example demonstrates how to use this method: 
+            <code>
+            
+            Property[] addProperty = new Property[2];
+            addProperty[0] = new Property("newproperty1","mynamespace:","123456789");
+            addProperty[1] = new Property("newproperty2","mynamespace:","abcd");
+            
+            PropertyName[] removeProperty = new PropertyName[1];
+            removeProperty[0] = new PropertyName("oldproperty1","mynamespace:");
+            
+            resource.ChangeProperty("http://server/folder1/",addProperty,removeProperty);
+            
+            </code>
+            </example>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.ChangeProperty(System.String,Independentsoft.Webdav.Property[],Independentsoft.Webdav.PropertyName[])">
+            <summary>
+            Sets (adds) and removes properties to/from a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="addProperty">Array of properties to set (add).</param>
+            <param name="removeProperty">Array of properties to remove.</param>
+            <returns>A MultiStatus response as a result of operation.</returns>
+            <example>
+            The following example demonstrates how to use this method: 
+            <code>
+            
+            Property[] addProperty = new Property[2];
+            addProperty[0] = new Property("newproperty1","mynamespace:","123456789");
+            addProperty[1] = new Property("newproperty2","mynamespace:","abcd");
+            
+            PropertyName[] removeProperty = new PropertyName[1];
+            removeProperty[0] = new PropertyName("oldproperty1","mynamespace:");
+            
+            resource.ChangeProperty("http://server/folder1/",addProperty,removeProperty);
+            
+            </code>
+            </example>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.ChangeProperty(Independentsoft.Webdav.Property[],Independentsoft.Webdav.Property[])">
+            <summary>
+            Sets (adds) and removes properties to/from a resource.
+            </summary>
+            <param name="addProperty">Array of properties to set (add).</param>
+            <param name="removeProperty">Array of properties to remove.</param>
+            <returns>A MultiStatus response as a result of operation.</returns>
+            <example>
+            The following example demonstrates how to use this method: 
+            <code>
+            
+            Property[] addProperty = new Property[2];
+            addProperty[0] = new Property("newproperty1","mynamespace:","123456789");
+            addProperty[1] = new Property("newproperty2","mynamespace:","abcd");
+            
+            PropertyName[] removeProperty = new PropertyName[1];
+            removeProperty[0] = new PropertyName("oldproperty1","mynamespace:");
+            
+            resource.ChangeProperty("http://server/folder1/",addProperty,removeProperty);
+            
+            </code>
+            </example>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.ChangeProperty(System.String,Independentsoft.Webdav.Property[],Independentsoft.Webdav.Property[])">
+            <summary>
+            Sets (adds) and removes properties to/from a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="addProperty">Array of properties to set (add).</param>
+            <param name="removeProperty">Array of properties to remove.</param>
+            <returns>A MultiStatus response as a result of operation.</returns>
+            <example>
+            The following example demonstrates how to use this method: 
+            <code>
+            
+            Property[] addProperty = new Property[2];
+            addProperty[0] = new Property("newproperty1","mynamespace:","123456789");
+            addProperty[1] = new Property("newproperty2","mynamespace:","abcd");
+            
+            PropertyName[] removeProperty = new PropertyName[1];
+            removeProperty[0] = new PropertyName("oldproperty1","mynamespace:");
+            
+            resource.ChangeProperty("http://server/folder1/",addProperty,removeProperty);
+            
+            </code>
+            </example> 
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.SetProperty(Independentsoft.Webdav.Property[])">
+            <summary>
+            Sets a property on a resource.
+            </summary>
+            <param name="property">An array of properties to set.</param>
+            <returns>A MultiStatus response as a result of operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.SetProperty(Independentsoft.Webdav.Property)">
+            <summary>
+            Sets a property on a resource.
+            </summary>
+            <param name="property">A property to set.</param>
+            <returns>A MultiStatus response as a result of operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.SetProperty(System.String,Independentsoft.Webdav.Property[])">
+            <summary>
+            Sets a property on a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="property">An array of properties to set.</param>
+            <returns>A MultiStatus response as a result of operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.SetProperty(System.String,Independentsoft.Webdav.Property)">
+            <summary>
+            Sets a property on a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="property">A property to set.</param>
+            <returns>A MultiStatus response as a result of operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.SetProperty(Independentsoft.Webdav.Property[],Independentsoft.Webdav.PropertyName[])">
+            <summary>
+            Sets (adds) and removes properties to/from a resource.
+            </summary>
+            <param name="addProperty">Array of properties to set (add).</param>
+            <param name="removeProperty">Array of properties to remove.</param>
+            <returns>A MultiStatus response as a result of operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.SetProperty(System.String,Independentsoft.Webdav.Property[],Independentsoft.Webdav.PropertyName[])">
+            <summary>
+            Sets (adds) and removes properties to/from a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="addProperty">Array of properties to set (add).</param>
+            <param name="removeProperty">Array of properties to remove.</param>
+            <returns>A MultiStatus response as a result of operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.SetProperty(Independentsoft.Webdav.Property[],Independentsoft.Webdav.Property[])">
+            <summary>
+            Sets (adds) and removes properties to/from a resource.
+            </summary>
+            <param name="addProperty">Array of properties to set (add).</param>
+            <param name="removeProperty">Array of properties to remove.</param>
+            <returns>A MultiStatus response as a result of operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.SetProperty(System.String,Independentsoft.Webdav.Property[],Independentsoft.Webdav.Property[])">
+            <summary>
+            Sets (adds) and removes properties to/from a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="addProperty">Array of properties to set (add).</param>
+            <param name="removeProperty">Array of properties to remove.</param>
+            <returns>A MultiStatus response as a result of operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.SetProperty(System.String,System.String)">
+            <summary>
+            Sets a property on a resource.
+            </summary>
+            <param name="propertyName">Name of property to set. Property namspace is <c>DAV:</c></param>
+            <param name="propertyValue">Value of property as a string</param>
+            <returns>A MultiStatus indicating the status of the property set.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.SetProperty(System.String,System.String,System.String)">
+            <summary>
+            Sets a property on a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="propertyName">Name of property to set. Property namspace is <c>DAV:</c></param>
+            <param name="propertyValue">Value of property as a string</param>
+            <returns>A MultiStatus indicating the status of the property set.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.SetProperty(System.String,System.String,System.String,System.String)">
+            <summary>
+            Sets a property on a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="propertyName">Name of property to set. Property namspace is <c>DAV:</c></param>
+            <param name="propertyNamespace">The property namespace</param>
+            <param name="propertyValue">Value of property as a string</param>
+            <returns>A MultiStatus indicating the status of the property set.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RemoveProperty(System.String)">
+            <summary>
+            Removes the property from the resource.
+            </summary>
+            <param name="propertyName">The property to by removed.</param>
+            <returns>A MultiStatus indicating the status of the property remove.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RemoveProperty(System.String,System.String)">
+            <summary>
+            Remove a property from a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="propertyName">The property local name. Namespace is <c>DAV:</c></param>
+            <returns>A MultiStatus indicating the status of the property remove.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RemoveProperty(System.String,System.String,System.String)">
+            <summary>
+            Remove a property from a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="propertyName">The property name.</param>
+            <param name="propertyNamespace">The property namespace.</param>
+            <returns>A MultiStatus indicating the status of the property remove.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RemoveProperty(Independentsoft.Webdav.PropertyName)">
+            <summary>
+            Remove a property from a resource.
+            </summary>
+            <param name="propertyName">The property to by removed.</param>
+            <returns>A MultiStatus indicating the status of the property remove.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RemoveProperty(Independentsoft.Webdav.PropertyName[])">
+            <summary>
+            Remove a property from a resource.
+            </summary>
+            <param name="propertyName">The property to by removed.</param>
+            <returns>A MultiStatus indicating the status of the property remove.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RemoveProperty(System.String,Independentsoft.Webdav.PropertyName[])">
+            <summary>
+            Remove a property from a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="propertyName">The property to by removed.</param>
+            <returns>A MultiStatus indicating the status of the property remove.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RemoveProperty(System.String,Independentsoft.Webdav.PropertyName)">
+            <summary>
+            Remove a property from a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="propertyName">The property to by removed.</param>
+            <returns>A MultiStatus indicating the status of the property remove.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RemoveProperty(System.String,Independentsoft.Webdav.Property[])">
+            <summary>
+            Remove a property from a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="property">The property to be removed.</param>
+            <returns>A MultiStatus indicating the status of the property remove.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RemoveProperty(Independentsoft.Webdav.Property[])">
+            <summary>
+            Remove a property from a resource.
+            </summary>
+            <param name="property">The array of properties to be removed.</param>
+            <returns>A MultiStatus indicating the status of the property remove.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RemoveProperty(System.String,Independentsoft.Webdav.Property)">
+            <summary>
+            Remove a property from a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="property">The property to be removed.</param>
+            <returns>A MultiStatus indicating the status of the property remove.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Copy(System.String,System.String)">
+            <summary>
+            Copies an existing resource to a new resource. 
+            Overwriting a existing resource is not allowed.
+            </summary>
+            <param name="source">Source resource URI.</param>
+            <param name="destination">Destination resource URI.</param>
+            <returns>True if success; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Copy(System.String,System.String,System.Boolean)">
+            <summary>
+            Copies an existing resource to a new resource. 
+            Overwriting a existing resource is allowed if parameter <c>overwrite is true</c>.
+            </summary>
+            <param name="source">Source resource URI.</param>
+            <param name="destination">Destination resource URI.</param>
+            <param name="overwrite">True to allow an existing resource to be overwritten; otherwise, false.</param>
+            <returns>True if success; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Copy(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Copies an existing resource to a new resource. 
+            Overwriting a existing resource is allowed if parameter <c>overwrite is true</c>.
+            </summary>
+            <remarks>
+            Some WebDAV servers doesn't understand <c>resursive</c> parameter.
+            </remarks>
+            <param name="source">Source resource URI.</param>
+            <param name="destination">Destination resource URI.</param>
+            <param name="overwrite">True to allow an existing resource to be overwritten; otherwise, false.</param>
+            <param name="recursive">True to copy this resource and all subresources. False means only copy this resource (collection) without subresources.</param>
+            <returns>True if success; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Move(System.String,System.String)">
+            <summary>
+            Moves a specified source resource to a destination resource.
+            Overwriting existing resource is not allowed.
+            </summary>
+            <param name="source">The URI of the resource to move.</param>
+            <param name="destination">The URI of the destination.</param>
+            <returns>True if success; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Move(System.String,System.String,System.Boolean)">
+            <summary>
+            Moves a specified source resource to a destination resource.
+            </summary>
+            <param name="source">The URI of the resource to move.</param>
+            <param name="destination">The URI of the destination.</param>
+            <param name="overwrite">True to allow an existing resource to be overwritten; otherwise, false.</param>
+            <returns>True if success; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Lock">
+            <summary>
+            Lock the current resource. 
+            </summary>
+            <returns>An ActiveLock as result of operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Lock(System.String)">
+            <summary>
+            Lock a resource based on the given parameters.
+            </summary>
+            <param name="address">The URI of the resource to lock.</param>
+            <returns>An ActiveLock as result of lock operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Lock(System.String,System.String)">
+            <summary>
+            Lock a resource based on the given parameters.
+            </summary>
+            <param name="address">The URI of the resource to lock.</param>
+            <param name="depth">The depth of lock. Allowed values are: <c>Depth.Zero</c> and <c>Depth.Infinity</c></param>
+            <returns>An ActiveLock as result of lock operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Lock(System.Int32)">
+            <summary>
+            Lock a resource based on the given parameters.
+            </summary>
+            <param name="timeout">The lock timeout in seconds.</param>
+            <returns>An ActiveLock as result of lock operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Lock(System.String,System.Int32)">
+            <summary>
+            Lock a resource based on the given parameters.
+            </summary>
+            <param name="depth">The depth of lock. Allowed values are: <c>Depth.Zero</c> and <c>Depth.Infinity</c></param>
+            <param name="timeout">The lock timeout in seconds.</param>
+            <returns>An ActiveLock as result of lock operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Lock(System.String,System.String,System.String)">
+            <summary>
+            Lock a resource based on the given parameters.
+            </summary>
+            <param name="address">The URI of the resource to lock.</param>
+            <param name="depth">The depth of lock. Allowed values are: <c>Depth.Zero</c> and <c>Depth.Infinity</c></param>
+            <param name="timeout">The lock timeout as either "Second-n" (where "n" is number between 0 and 4294967295) or "Infinite".</param>
+            <returns>An ActiveLock as result of lock operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Lock(System.String,System.String,System.Int32)">
+            <summary>
+            Lock a resource based on the given parameters.
+            </summary>
+            <param name="address">The URI of the resource to lock.</param>
+            <param name="depth">The depth of lock. Allowed values are: <c>Depth.Zero</c> and <c>Depth.Infinity</c></param>
+            <param name="timeout">The lock timeout in seconds.</param>
+            <returns>An ActiveLock as result of lock operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Lock(Independentsoft.Webdav.ActiveLock)">
+            <summary>
+            Lock a resource based on the given parameters.
+            </summary>
+            <param name="activeLock">The lock to set on a resource.</param>
+            <returns>An ActiveLock as result of lock operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Lock(System.String,Independentsoft.Webdav.ActiveLock)">
+            <summary>
+            Lock a resource based on the given parameters.
+            </summary>
+            <param name="address">The URI of the resource to lock.</param>
+            <param name="activeLock">The lock to set on a resource.</param>
+            <returns>An ActiveLock as result of lock operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RefreshLock(System.Int32,System.String)">
+            <summary>
+            Refresh the lock on this resource by resetting the lock timeout.
+            </summary>
+            <param name="timeout">The lock timeout in seconds.</param>
+            <param name="lockToken">The lock token corresponding to a lock on a resource.</param>
+            <returns>An ActiveLock as result of operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RefreshLock(System.String,System.Int32,System.String)">
+            <summary>
+            Refresh the lock on this resource by resetting the lock timeout.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="timeout">The lock timeout in seconds.</param>
+            <param name="lockToken">The lock token corresponding to a lock on a resource.</param>
+            <returns>An ActiveLock as result of operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RefreshLock(System.String,System.String,System.String)">
+            <summary>
+            Refresh the lock on this resource by resetting the lock timeout.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="timeout">The lock timeout as either Second-n (where "n" is number between 0 and 4294967295) or "Infinite".</param>
+            <param name="lockToken">The lock token corresponding to a lock on a resource.</param>
+            <returns>An ActiveLock as result of refresh lock operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RefreshLock(Independentsoft.Webdav.ActiveLock)">
+            <summary>
+            Refresh the lock on this resource by resetting the lock timeout.
+            </summary>
+            <param name="activeLock">The lock on resource to refresh lock.</param>
+            <returns>An ActiveLock as result of refresh lock operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RefreshLock(System.Int32,Independentsoft.Webdav.ActiveLock)">
+            <summary>
+            Refresh the lock on this resource by resetting the lock timeout.
+            </summary>
+            <param name="timeout">The lock timeout in seconds.</param>
+            <param name="activeLock">The lock on resource to refresh lock.</param>
+            <returns>An ActiveLock as result of refresh lock operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RefreshLock(System.String,System.Int32,Independentsoft.Webdav.ActiveLock)">
+            <summary>
+            Refresh the lock on a resource by resetting the lock timeout.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="timeout">The lock timeout in seconds.</param>
+            <param name="activeLock">The lock on resource to refresh lock.</param>
+            <returns>An ActiveLock as result of refresh lock operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.RefreshLock(System.String,System.String,Independentsoft.Webdav.ActiveLock)">
+            <summary>
+            Refresh the lock on a resource by resetting the lock timeout.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="timeout">The lock timeout as either "Second-n" (where "n" is number between 0 and 4294967295) or "Infinite".</param>
+            <param name="activeLock">The lock on resource to refresh lock.</param>
+            <returns>An ActiveLock as result of refresh lock operation.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Unlock">
+            <summary>
+            Unlock the lock on this resource.
+            </summary>
+            <returns>True if success; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Unlock(System.String)">
+            <summary>
+            Unlock the lock on the resource identifies by address.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>True if success; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Unlock(System.String,System.String)">
+            <summary>
+            Unlock the lock identified by the lockToken on this resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="lockToken">The lock token corresponding to a lock on a resource.</param>
+            <returns>True if success; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Unlock(Independentsoft.Webdav.ActiveLock)">
+            <summary>
+            Unlock the lock on this resource.
+            </summary>
+            <param name="activeLock">The lock on resource to unlock.</param>
+            <returns>True if success; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Unlock(System.String,Independentsoft.Webdav.ActiveLock)">
+            <summary>
+            Unlock the lock on a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="activeLock">The lock on resource to unlock.</param>
+            <returns>True if success; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Unlock(System.String,Independentsoft.Webdav.ActiveLock[])">
+            <summary>
+            Unlock the locks on a resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="activeLock">Array of locks on resource to unlock.</param>
+            <returns>True if success; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Unlock(Independentsoft.Webdav.ActiveLock[])">
+            <summary>
+            Unlock the locks on this resource.
+            </summary>
+            <param name="activeLock">Array of locks on resource to unlock.</param>
+            <returns>True if success; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.DownloadFile(System.String,System.String)">
+            <summary>
+            Downloads data from a resource with the specified URI (address) to a local file.
+            </summary>
+            <param name="address">The URI to download data from.</param>
+            <param name="fileName">The path of the local file to receive the data.</param>
+            <example>
+            The following example demonstrates how to use this method: 
+            <code>
+            
+            //Download file
+            public void Download()
+            {
+            	resource.DownloadProgress += new DownloadProgressEventHandler(DownloadProgress);
+            	resource.DownloadFile(remoteFile, localFile);
+            }
+            
+            //Display progress
+            private void DownloadProgress(Object sender,ProgressEventArgs e)
+            {
+            	Console.WriteLine(e.Progress);
+            }
+            
+            </code>
+            </example>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.DownloadFile(System.String,System.String,System.Int32)">
+            <summary>
+            Downloads data from a resource with the specified URI (address) to a local file.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="fileName">The path of the local file to receive the data.</param>
+            <param name="bufferSize">The buffer size. Default value is 8192 bytes.</param>
+            <example>
+            The following example demonstrates how to use this method: 
+            <code>
+            
+            //Download file
+            public void Download()
+            {
+            	resource.DownloadProgress += new DownloadProgressEventHandler(DownloadProgress);
+            	resource.DownloadFile(remoteFile, localFile);
+            }
+            
+            //Display progress
+            private void DownloadProgress(Object sender,ProgressEventArgs e)
+            {
+            	Console.WriteLine(e.Progress);
+            }
+            
+            </code>
+            </example>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.DownloadFile(System.String,System.IO.Stream)">
+            <summary>
+            Downloads data from a resource with the specified URI (address) to a stream.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="output">The output stream to receive the data.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.DownloadFile(System.String,System.IO.Stream,System.Int32)">
+            <summary>
+            Downloads data from a resource with the specified URI (address) to a stream.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <param name="output">The output stream to receive the data.</param>
+            <param name="bufferSize">The buffer size. Default value is 8192 bytes.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.UploadFile(System.String,System.String)">
+            <summary>
+            Uploads a local file to a resource with the specified URI.
+            </summary>
+            <param name="address">The URI of the resource to receive the file.</param>
+            <param name="fileName">The file to send to the resource.</param>
+            <example>
+            The following example demonstrates how to use this method: 
+            <code>
+            
+            //Upload file
+            public void Upload()
+            {
+            	resource.UploadProgress += new UploadProgressEventHandler(UploadProgress);
+            	resource.UploadFile(remoteFile, localFile);
+            }
+            
+            //Display progress
+            private void UploadProgress(Object sender,ProgressEventArgs e)
+            {
+            	Console.WriteLine(e.Progress);
+            }
+            
+            </code>
+            </example>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.UploadFile(System.String,System.String,System.Int32)">
+            <summary>
+            Uploads a local file to a resource with the specified URI.
+            </summary>
+            <param name="address">The URI of the resource to receive the file.</param>
+            <param name="fileName">The file to send to the resource.</param>
+            <param name="bufferSize">The buffer size. Default value is 8192 bytes.</param> 
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.UploadFile(System.String,System.String,Independentsoft.Webdav.ContentRange)">
+            <summary>
+            Uploads a local file to a resource with the specified URI.
+            </summary>
+            <param name="address">The URI of the resource to receive the file.</param>
+            <param name="fileName">The file to send to the resource.</param>
+            <param name="contentRange">The content range.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.UploadFile(System.String,System.String,System.Int32,Independentsoft.Webdav.ContentRange)">
+            <summary>
+            Uploads a local file to a resource with the specified URI.
+            </summary>
+            <param name="address">The URI of the resource to receive the file.</param>
+            <param name="fileName">The file to send to the resource.</param>
+            <param name="bufferSize">The buffer size. Default value is 8192 bytes.</param>
+            <param name="contentRange">The content range.</param>
+            <example>
+            The following example demonstrates how to use this method: 
+            <code>
+            
+            //Upload file
+            public void Upload()
+            {
+            	resource.UploadProgress += new UploadProgressEventHandler(UploadProgress);
+            	resource.UploadFile(remoteFile, localFile);
+            }
+            
+            //Display progress
+            private void UploadProgress(Object sender,ProgressEventArgs e)
+            {
+            	Console.WriteLine(e.Progress);
+            }
+            
+            </code>
+            </example>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetInputStream">
+            <summary>
+            Returns the data stream from the resource.
+            </summary>
+            <returns>An instance of the Stream class for reading data from the resource.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetInputStream(System.String)">
+            <summary>
+            Returns the data stream from the resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>An instance of the Stream class for reading data from the resource.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Download(System.String,System.String)">
+            <summary>
+            Downloads data from a resource with the specified URI (address) to a local file.
+            </summary>
+            <param name="address">The URI to download data from.</param>
+            <param name="fileName">The path of the local file to receive the data.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Download(System.String,System.String,System.Int32)">
+            <summary>
+            Downloads data from a resource with the specified URI (address) to a local file.
+            </summary>
+            <param name="address">The URI to download data from.</param>
+            <param name="fileName">The path of the local file to receive the data.</param>
+            <param name="bufferSize">The buffer size. Default value is 8192 bytes.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Download(System.String,System.IO.Stream)">
+            <summary>
+            Downloads data from a resource with the specified URI (address) to a stream.
+            </summary>
+            <param name="address">The URI to download data from.</param>
+            <param name="stream">The stream to receive the data.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Download(System.String,System.IO.Stream,System.Int32)">
+            <summary>
+            Downloads data from a resource with the specified URI (address) to a stream.
+            </summary>
+            <param name="address">The URI to download data from.</param>
+            <param name="stream">The stream to receive the data.</param>
+            <param name="bufferSize">The buffer size. Default value is 8192 bytes.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetOutputStream">
+            <summary>
+            Returns a Stream for writing data to the resource.
+            </summary>
+            <returns>A Stream for writing data to the resource.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetOutputStream(System.String)">
+            <summary>
+            Returns a Stream for writing data to the resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>A Stream for writing data to the resource.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Upload(System.String,System.String)">
+            <summary>
+            Uploads a local file to a resource with the specified URI.
+            </summary>
+            <param name="address">The URI of the resource to receive the file.</param>
+            <param name="fileName">The file to send to the resource.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Upload(System.String,System.String,Independentsoft.Webdav.ContentRange)">
+            <summary>
+            Uploads a local file to a resource with the specified URI.
+            </summary>
+            <param name="address">The URI of the resource to receive the file.</param>
+            <param name="fileName">The file to send to the resource.</param>
+            <param name="contentRange">The content range.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Upload(System.String,System.String,System.Int32)">
+            <summary>
+            Uploads a local file to a resource with the specified URI.
+            </summary>
+            <param name="address">The URI of the resource to receive the file.</param>
+            <param name="fileName">The file to send to the resource.</param>
+            <param name="bufferSize">The buffer size. Default value is 8192 bytes.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Upload(System.String,System.String,System.Int32,Independentsoft.Webdav.ContentRange)">
+            <summary>
+            Uploads a local file to a resource with the specified URI.
+            </summary>
+            <param name="address">The URI of the resource to receive the file.</param>
+            <param name="fileName">The file to send to the resource.</param>
+            <param name="bufferSize">The buffer size. Default value is 8192 bytes.</param>
+            <param name="contentRange">The content range.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Upload(System.String,System.IO.Stream)">
+            <summary>
+            Uploads a data from stream a resource with the specified URI.
+            </summary>
+            <param name="address">The URI of the resource to receive the data.</param>
+            <param name="stream">The input stream.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Upload(System.String,System.IO.Stream,Independentsoft.Webdav.ContentRange)">
+            <summary>
+            Uploads a data from stream a resource with the specified URI.
+            </summary>
+            <param name="address">The URI of the resource to receive the data.</param>
+            <param name="stream">The input stream.</param>
+            <param name="contentRange">The content range.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Upload(System.String,System.IO.Stream,System.Int32)">
+            <summary>
+            Uploads a data from stream a resource with the specified URI.
+            </summary>
+            <param name="address">The URI of the resource to receive the data.</param>
+            <param name="stream">The input stream.</param>
+            <param name="bufferSize">The buffer size. Default value is 8192 bytes.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Upload(System.String,System.IO.Stream,System.Int32,Independentsoft.Webdav.ContentRange)">
+            <summary>
+            Uploads a data from stream a resource with the specified URI.
+            </summary>
+            <param name="address">The URI of the resource to receive the data.</param>
+            <param name="stream">The input stream.</param>
+            <param name="bufferSize">The buffer size. Default value is 8192 bytes.</param>
+            <param name="contentRange">The content range.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.List">
+            <summary>
+            Displays a list of resource URLs.
+            </summary>
+            <returns>An array of resource URLs.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.List(System.String)">
+            <summary>
+            Displays a list of resources in a collection. 
+            </summary>
+            <param name="address">The URI that identifies the collection.</param>
+            <returns>An array of resource URLs.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.List(System.Boolean)">
+            <summary>
+            Displays a list of resource URLs.
+            </summary>
+            <param name="recursive">If <c>true</c> returns resources in this collection and all subcollections.</param>
+            <returns>An array of resource URLs.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.List(System.String,System.Boolean)">
+            <summary>
+            Displays a list of resource URLs. 
+            </summary>
+            <param name="address">The URI that identifies the collection.</param>
+            <param name="recursive">If <c>true</c> returns resources in this collection and all subcollections.</param>
+            <returns>An array of resource URLs.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.List(System.String,Independentsoft.Webdav.PropertyName[])">
+            <summary>
+            Displays a list of ResourceInfo.
+            </summary>
+            <param name="address">The URI that identifies the collection.</param>
+            <param name="propertyName">Properties to display.</param>
+            <returns>An array of ResourceInfo.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.List(System.String,Independentsoft.Webdav.PropertyName[],System.Boolean)">
+            <summary>
+            Displays a list of ResourceInfo.
+            </summary>
+            <param name="address">The URI that identifies the collection.</param>
+            <param name="propertyName">Properties to display.</param>
+            <param name="recursive">If <c>true</c> returns resources in this collection and all subcollections.</param>
+            <returns>An array of ResourceInfo.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.ListWithProperties(Independentsoft.Webdav.PropertyName[])">
+             <summary>
+             Displays a list of subresources and their name and properties. 
+             </summary>
+             <remarks>
+             This method returns names and requested properties values of subresources in collection.
+             </remarks>
+             <param name="propertyName">Properties to display.</param>
+             <returns>
+             Two-dimension array of strings. The "first dimension" is number of returned resources, 
+             and the "secound dimension" is number of requested properties plus one.  
+             </returns>
+             <example>The following example shows how to call the ListWithProperties method.
+             <code>
+             using System;
+             using Independentsoft.Webdav;
+             
+             class List
+             {
+            	[STAThread]
+            	static void Main(string[] args)
+            	{
+            		Resource resource = new Resource("http://localhost/dav");
+            	
+            		//Creates requested property names.
+            		PropertyName propertyName1 = new PropertyName("getcontentlength","DAV:");
+            		PropertyName propertyName2 = new PropertyName("resourcetype","DAV:");
+            		PropertyName propertyName3 = new PropertyName("getlastmodified","DAV:");
+            
+            		PropertyName[] attributes = new PropertyName[3];
+            	
+            		attributes[0] = propertyName1;
+            		attributes[1] = propertyName2;
+            		attributes[2] = propertyName3;
+            	
+            		//Calls the method.
+            		string[,] list = resource.ListWithProperties(attributes);
+            	
+            		for(int i=0;i list.GetLength(0);i++)
+            		{
+            			string name = list[i,0];
+            			string size = list[i,1];
+            			string type = list[i,2];
+            			string date = list[i,3];
+            
+            			Console.WriteLine(name + " " + size + " " + type + " " + date);
+            		}
+            
+            		//Wait for "return" to exit.
+            		Console.Read();
+            	}
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.ListWithProperties(System.String,Independentsoft.Webdav.PropertyName[])">
+             <summary>
+             Displays a list of subresources and their name and properties. 
+             </summary>
+             <remarks>
+             This method returns names and requested properties values of subresources in collection.
+             </remarks>
+             <param name="address">The URI that identifies the collection.</param>
+             <param name="propertyName">Properties to display.</param>
+             <returns>
+             Two-dimension array of strings. The "first dimension" is number of returned resources, 
+             and the "secound dimension" is number of requested properties plus one.  
+             </returns>
+             <example>The following example shows how to call the ListWithProperties method.
+             <code>
+             using System;
+             using Independentsoft.Webdav;
+             
+             class List
+             {
+            	[STAThread]
+            	static void Main(string[] args)
+            	{
+            		Resource resource = new Resource("http://localhost/dav");
+            	
+            		//Creates requested property names.
+            		PropertyName propertyName1 = new PropertyName("getcontentlength","DAV:");
+            		PropertyName propertyName2 = new PropertyName("resourcetype","DAV:");
+            		PropertyName propertyName3 = new PropertyName("getlastmodified","DAV:");
+            
+            		PropertyName[] attributes = new PropertyName[3];
+            	
+            		attributes[0] = propertyName1;
+            		attributes[1] = propertyName2;
+            		attributes[2] = propertyName3;
+            	
+            		//Calls the method.
+            		string[,] list = resource.ListWithProperties(attributes);
+            	
+            		for(int i=0;i list.GetLength(0);i++)
+            		{
+            			string name = list[i,0];
+            			string size = list[i,1];
+            			string type = list[i,2];
+            			string date = list[i,3];
+            
+            			Console.WriteLine(name + " " + size + " " + type + " " + date);
+            		}
+            
+            		//Wait for "return" to exit.
+            		Console.Read();
+            	}
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.ListWithProperties(Independentsoft.Webdav.PropertyName[],System.Boolean)">
+             <summary>
+             Displays a list of subresources and their name and properties. 
+             </summary>
+             <remarks>
+             This method returns names and requested properties values of subresources in collection.
+             </remarks>
+             <param name="propertyName">Properties to display.</param>
+             <param name="recursive">If <c>true</c> returns resources in this collection and all subcollections.</param>
+             <returns>
+             Two-dimension array of strings. The "first dimension" is number of returned resources, 
+             and the "secound dimension" is number of requested properties plus one.  
+             </returns>
+             <example>The following example shows how to call the ListWithProperties method.
+             <code>
+             using System;
+             using Independentsoft.Webdav;
+             
+             class List
+             {
+            	[STAThread]
+            	static void Main(string[] args)
+            	{
+            		Resource resource = new Resource("http://localhost/dav");
+            	
+            		//Creates requested property names.
+            		PropertyName propertyName1 = new PropertyName("getcontentlength","DAV:");
+            		PropertyName propertyName2 = new PropertyName("resourcetype","DAV:");
+            		PropertyName propertyName3 = new PropertyName("getlastmodified","DAV:");
+            
+            		PropertyName[] attributes = new PropertyName[3];
+            	
+            		attributes[0] = propertyName1;
+            		attributes[1] = propertyName2;
+            		attributes[2] = propertyName3;
+            	
+            		//Calls the method.
+            		string[,] list = resource.ListWithProperties(attributes);
+            	
+            		for(int i=0;i list.GetLength(0);i++)
+            		{
+            			string name = list[i,0];
+            			string size = list[i,1];
+            			string type = list[i,2];
+            			string date = list[i,3];
+            
+            			Console.WriteLine(name + " " + size + " " + type + " " + date);
+            		}
+            
+            		//Wait for "return" to exit.
+            		Console.Read();
+            	}
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.ListWithProperties(System.String,Independentsoft.Webdav.PropertyName[],System.Boolean)">
+             <summary>
+             Displays a list of subresources and their name and properties. 
+             </summary>
+             <remarks>
+             This method returns names and requested properties values of subresources in collection.
+             </remarks>
+             <param name="address">The URI that identifies the collection.</param>
+             <param name="propertyName">Properties to display.</param>
+             <param name="recursive">If <c>true</c> returns resources in this collection and all subcollections.</param>
+             <returns>
+             Two-dimension array of strings. The "first dimension" is number of returned resources, 
+             and the "secound dimension" is number of requested properties plus one.  
+             </returns>
+             <example>The following example shows how to call the ListWithProperties method.
+             <code>
+             using System;
+             using Independentsoft.Webdav;
+             
+             class List
+             {
+            	[STAThread]
+            	static void Main(string[] args)
+            	{
+            		Resource resource = new Resource("http://localhost/dav");
+            	
+            		//Creates requested property names.
+            		PropertyName propertyName1 = new PropertyName("getcontentlength","DAV:");
+            		PropertyName propertyName2 = new PropertyName("resourcetype","DAV:");
+            		PropertyName propertyName3 = new PropertyName("getlastmodified","DAV:");
+            
+            		PropertyName[] attributes = new PropertyName[3];
+            	
+            		attributes[0] = propertyName1;
+            		attributes[1] = propertyName2;
+            		attributes[2] = propertyName3;
+            	
+            		//Calls the method.
+            		string[,] list = resource.ListWithProperties(attributes);
+            	
+            		for(int i=0;i list.GetLength(0);i++)
+            		{
+            			string name = list[i,0];
+            			string size = list[i,1];
+            			string type = list[i,2];
+            			string date = list[i,3];
+            
+            			Console.WriteLine(name + " " + size + " " + type + " " + date);
+            		}
+            
+            		//Wait for "return" to exit.
+            		Console.Read();
+            	}
+            }
+             </code>
+             </example>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetSize">
+            <summary>
+            Gets size of resource.
+            </summary>
+            <returns>Number of bytes.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetSize(System.String)">
+            <summary>
+            Gets size of resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>Number of bytes.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Exists">
+            <summary>
+            Determines whether the specified resource exists.
+            </summary>
+            <returns>True if the resource exists; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.Exists(System.String)">
+            <summary>
+            Determines whether the specified resource exists.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>True if the resource exists; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.IsCollection">
+            <summary>
+             Returns a boolean indicating whether this resource is a collection.
+            </summary>
+            <returns>True if the resource is collection; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.IsCollection(System.String)">
+            <summary>
+            Returns a boolean indicating whether this resource is a collection.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>True if the resource is collection; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetLock">
+            <summary>
+            Gets the locks that exist on this resource.
+            </summary>
+            <returns>Array of locks on a resource.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetLock(System.String)">
+            <summary>
+            Gets the locks that exist on this resource.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>Array of locks on a resource.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.IsLocked">
+            <summary>
+            Returns a boolean indicating whether this resource is locked. 
+            </summary>
+            <returns>True if the resource is locked; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.IsLocked(System.String)">
+            <summary>
+            Returns a boolean indicating whether this resource is locked. 
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>True if the resource is locked; otherwise, false.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetSupportedLock">
+            <summary>
+            Gets the <c>supportedlock</c> property value.
+            </summary>
+            <returns>An array of LockEntry, contains combinations of scope and access type which may be specified in lock request on the resource.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Resource.GetSupportedLock(System.String)">
+            <summary>
+            Gets the <c>supportedlock</c> property value.
+            </summary>
+            <param name="address">The URI that identifies the resource.</param>
+            <returns>An array of LockEntry, contains combinations of scope and access type which may be specified in lock request on the resource.</returns>
+        </member>
+        <member name="E:Independentsoft.Webdav.Resource.DownloadProgress">
+            <summary>
+            Occurs to indicate the progress of an download operation.
+            </summary>
+        </member>
+        <member name="E:Independentsoft.Webdav.Resource.UploadProgress">
+            <summary>
+            Occurs to indicate the progress of an upload operation.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.Session">
+            <summary>
+            Gets or sets the WebdavSession of the resource.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.Address">
+            <summary>
+            Gets or sets the URI of the resource.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.AllowBuffering">
+            <summary>
+            Gets or sets a value that indicates whether to buffer the data sent to the Internet resource.
+            </summary>
+            <remarks>
+            .NET Compact Framework Platform Note:  
+            Setting this property to false authentication might not occure.
+            </remarks>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.SendChunked">
+            <summary>
+            Gets or sets a value indicating whether to send data in segments to the Internet resource.
+            </summary>
+            <remarks>
+            Recommend value for .NET Compact Framework applications is true.
+            </remarks>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.SetContentLength">
+            <summary>
+            Gets or sets a value indicating whether to set ContentLength property for underlying HttpWebRequest.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.PreAuthenticate">
+            <summary>
+            Gets or sets a value indicating whether to send a authenticate header with the request.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.KeepAlive">
+            <summary>
+            Gets or sets a value indicating whether to make a persistent connection.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.AllowAutoRedirect">
+            <summary>
+            Gets or sets a value that indicates whether the request should follow redirection responses.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.ClientCertificate">
+            <summary>
+            Gets or sets the security client certificate.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.Cookies">
+            <summary>
+            Gets or sets the collection of cookies.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.Timeout">
+            <summary>
+            Gets or sets the time-out value for a request.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.RequestHeader">
+            <summary>
+            Gets or sets the custom request header.
+            </summary>
+            <remarks>
+            Header name and value are comma separated.
+            </remarks>
+            <example>
+            The following example demonstrates how to use this property: 
+            <code>
+            
+             string[] myHeader = string[1];
+             
+             //Add the Accept-Language header (for Danish) in the request.
+             myHeader[0] = "Accept-Language:da";
+            
+             resource.RequestHeader = myHeader;
+            
+            </code>
+            </example>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.UnsafeAuthenticatedConnectionSharing">
+            <summary>
+            Gets or sets a value that indicates whether to allow high-speed NTLM-authenticated connection sharing. 
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.HttpWebRequest">
+            <summary>
+            Gets underlying HttpWebRequest object.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.HttpWebResponse">
+            <summary>
+            Gets the latest response.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Resource.UserAgent">
+            <summary>
+            Gets or sets the value of the User-Agent HTTP header. 
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.MultiStatus">
+            <summary>
+            A MultiStatus contains multiple Response instances resulting from the
+            invocation of a method on a resource. There will generally be one Response for 
+            each resource effected by the method.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.MultiStatus.#ctor">
+            <summary>
+            Initializes a new instance of the MultiStatus class.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.MultiStatus.Description">
+            <summary>
+            Gets the description. Contains a message that can be displayed to the user explaining
+            the nature of the response
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.MultiStatus.Response">
+            <summary>
+            Gets enumerator of responses.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Methods.LockMethod">
+            <summary>
+            This class implements the WebDAV LOCK Method.
+            set.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Methods.LockMethod.MethodName">
+            <summary>
+            The method name.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Methods.LockMethod.InfiniteTimeout">
+            <summary>
+            The timeout as infinite value. 
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.LockMethod.#ctor">
+            <summary>
+            Initializes a new instance of the LockMethod class.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.LockMethod.#ctor(Independentsoft.Webdav.LockScope,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the LockMethod class.
+            </summary>
+            <param name="scope">The scope of the lock, exclusive or shared</param>
+            <param name="type">The type of the lock. The only legal DAV value currently is "write".<seealso cref="T:Independentsoft.Webdav.LockType"/></param>
+            <param name="depth">The depth of the lock. Allowed values are: <c>Depth.Zero</c> means only this resource is locked, <c>Depth.Infinity</c> means this resource and recursively all its subresources are locked.</param>
+            <param name="timeout">The lock timeout as either Second-n (where "n" is number between 0 and 4294967295) or "Infinite".</param>
+            <param name="owner">Contains useful information that can be used to identify the owner of the lock (ie. link to a home page, an e-mail address, phone number, etc.)</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.LockMethod.GenerateRequestBody">
+            <summary>
+            Generates the request body of this method.
+            </summary>
+            <returns>Request body as xml string.</returns>
+        </member>
+        <member name="P:Independentsoft.Webdav.Methods.LockMethod.Scope">
+            <summary>
+            Gets or sets a scope of a lock.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Methods.LockMethod.Type">
+            <summary>
+            Gets or sets a type of a lock.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Methods.LockMethod.Timeout">
+            <summary>
+            Gets or sets a timeout of a lock.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Methods.LockMethod.Owner">
+            <summary>
+            Gets or sets the owner of the lock.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Methods.LockMethod.LockToken">
+            <summary>
+            Gets or sets a lock token of a lock.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Methods.LockMethod.Depth">
+            <summary>
+            Gets or sets a depth of a lock.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.LockType">
+            <summary>
+            Type of a lock. 
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.LockType.Write">
+            <summary>
+            Write locks allow a resource to be updated or deleted.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.LockType.#ctor">
+            <summary>
+            Initializes a new instance of the LockType class.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Methods.PutMethod">
+            <summary>
+            This class implements the WebDAV PUT Method.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Methods.PutMethod.MethodName">
+            <summary>
+            The method name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.PutMethod.#ctor">
+            <summary>
+            Initializes a new instance of the PutMethod class.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.LockScope">
+            <summary>
+            Specifies whether a lock is an exclusive lock, or a shared lock.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.LockScope.Exclusive">
+            <summary>
+            Specifies an exclusive lock, where the access right is only granted to a single principal.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.LockScope.Shared">
+            <summary>
+            Specifies an shared lock, allows multiple principals to receive a lock.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.LockScope.Local">
+            <summary>
+            Specifies a transaction of local scope.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Properties.GetContentType">
+            <summary>
+            Contains the Content-Type header value.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Properties.GetContentType.Name">
+            <summary>
+            The property name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Properties.GetContentType.#ctor">
+            <summary>
+            Initializes a new instance of the GetContentType class.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Methods.MkcolMethod">
+            <summary>
+            This class implements the WebDAV MKCOL Method.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Methods.MkcolMethod.MethodName">
+            <summary>
+            The method name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.MkcolMethod.#ctor">
+            <summary>
+            Initializes a new instance of the MkcolMethod class.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Properties.SupportedLock">
+            <summary>
+            To provide a listing of the lock capabilities supported by the resource.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Properties.SupportedLock.Name">
+            <summary>
+            The property name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Properties.SupportedLock.#ctor">
+            <summary>
+            Initializes a new instance of the SupportedLock class.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Properties.SupportedLock.LockEntry">
+            <summary>
+            Gets a LockEntry as a enumerator of XmlNodes.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.LockEntry">
+            <summary>
+            Defines the types of locks that can be used with the resource.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.LockEntry.#ctor(Independentsoft.Webdav.LockScope,System.String)">
+            <summary>
+            Initializes a new instance of the LockEntry class.
+            </summary>
+            <param name="scope">A lock scope.</param>
+            <param name="type">A lock type.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.LockEntry.#ctor">
+            <summary>
+            Initializes a new instance of the LockEntry class.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.LockEntry.Scope">
+            <summary>
+            Gets or sets the LockScope
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.LockEntry.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Properties.LockDiscovery">
+            <summary>
+            Describes the active locks on a resource.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Properties.LockDiscovery.Name">
+            <summary>
+            The property name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Properties.LockDiscovery.#ctor">
+            <summary>
+            Initializes a new instance of the LockDiscovery class.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Properties.LockDiscovery.ActiveLock">
+            <summary>
+            Gets or sets ActiveLock value.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Methods.PropFindMethod">
+            <summary>
+            This class implements the WebDAV PROPFIND Method.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Methods.PropFindMethod.MethodName">
+            <summary>
+            The method name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.PropFindMethod.#ctor">
+            <summary>
+            Initializes a new instance of the PropFindMethod class.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.PropFindMethod.GenerateRequestBodyAll">
+            <summary>
+            Generates the request body of this method.
+            </summary>
+            <returns>Request body as xml string.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.PropFindMethod.GenerateRequestBodyAllNames">
+            <summary>
+            Generates the request body of this method.
+            </summary>
+            <returns>Request body as xml string.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.PropFindMethod.GenerateRequestBody(Independentsoft.Webdav.PropertyName[])">
+            <summary>
+            Generates the request body of this method.
+            </summary>
+            <param name="propertyName">The name of the property.</param>
+            <returns>Request body as xml string.</returns>
+        </member>
+        <member name="T:Independentsoft.Webdav.Methods.OptionsMethod">
+            <summary>
+            This class implements the WebDAV OPTIONS Method.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Methods.OptionsMethod.MethodName">
+            <summary>
+            The method name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.OptionsMethod.#ctor">
+            <summary>
+            Initializes a new instance of the HeadMethod class.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Response">
+            <summary>
+            A Response describes the effect of a method on a resource and/or its properties.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Response.#ctor">
+            <summary>
+            Initializes a new instance of the Response class.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Response.HRef">
+            <summary>
+            Gets the href.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Response.Description">
+            <summary>
+            Gets the description.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Response.Status">
+            <summary>
+            Gets the status code for use with 207 (Multi-Status)
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Response.PropStat">
+            <summary>
+            Gets PropStat
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Link">
+            <summary>
+            Identifies the property as a link and contains the source and destination of that link.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Link.#ctor">
+            <summary>
+            Initializes a new instance of the Link class.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Link.Src">
+            <summary>
+            Gets or sets source value
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Link.Dest">
+            <summary>
+            Gets or sets destination value
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Depth">
+            <summary>
+            The depth header value indicates that the method applies to either:
+             the collection (depth 0);
+             the collection and its immediate contents (depth 1); or
+             the collection, its contents and all subcollections (depth infinity).
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Depth.Zero">
+            <summary>
+            The resource (collection) level
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Depth.One">
+            <summary>
+            The collection and its immediate contents.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Depth.Infinity">
+            <summary>
+            The collection, its contents and all subcollections.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.ResourceInfo">
+            <summary>
+            Contains URL and properties of a Resource.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.ResourceInfo.#ctor">
+            <summary>
+            Create new instance of the ResourceInfo.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.ResourceInfo.Address">
+            <summary>
+            Gets or sets Resource URL.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.ResourceInfo.Properties">
+            <summary>
+            Gets Resource properties.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.PropStat">
+            <summary>
+             This class models <c>propstat</c> xml element.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.PropStat.#ctor">
+            <summary>
+            Initializes a new instance of the PropStat class.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.PropStat.ResponseDescription">
+            <summary>
+            Gets ResponseDescription value.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.PropStat.Status">
+            <summary>
+            Gets status value
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.PropStat.Prop">
+            <summary>
+            Gets Prop value.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.PropertyCollection">
+            <summary>
+            Collection that contains Property objects.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.PropertyCollection.#ctor">
+            <summary>
+            Initializes a new instance of the PropertyCollection.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.PropertyCollection.ToString">
+            <summary>
+            Returns a String that represents the current PropertyCollection.
+            </summary>
+            <returns>A String that represents the current collection.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.PropertyCollection.CopyTo(Independentsoft.Webdav.Property[],System.Int32)">
+            <summary>
+            Copies the entire PropertyCollection to a compatible one-dimensional Property array, starting at the specified index of the target array.
+            </summary>
+            <param name="property">The one-dimensional Property array that is the destination of the elements copied from PropertyCollection. The array must have zero-based indexing.</param>
+            <param name="index">The zero-based index in dest at which copying begins.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.PropertyCollection.Insert(System.Int32,Independentsoft.Webdav.Property)">
+            <summary>
+            Inserts an element into the collection at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which value should be inserted.</param>
+            <param name="property">The Property to insert.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.PropertyCollection.Remove(Independentsoft.Webdav.Property)">
+            <summary>
+            Removes the first occurrence of a specific property from the collection.
+            </summary>
+            <param name="property">The property to remove from the collection.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.PropertyCollection.Contains(Independentsoft.Webdav.Property)">
+            <summary>
+            Determines whether a property is in the collection.
+            </summary>
+            <param name="property">The property to locate in the collection.</param>
+            <returns>True if property is found in the collection; otherwise, false</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.PropertyCollection.IndexOf(Independentsoft.Webdav.Property)">
+            <summary>
+            Searches for the specified <see cref="T:Independentsoft.Webdav.Property"/> and returns the zero-based index of the first occurrence within the entire collection.
+            </summary>
+            <param name="property"></param>
+            <returns>The property to locate in the collection. The value can be a null reference </returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.PropertyCollection.Add(Independentsoft.Webdav.PropertyCollection)">
+            <summary>
+            Adds a PropertyCollection to the collection.
+            </summary>
+            <param name="collection">A PropertyCollection to be added.</param>
+            <returns>The collection size.</returns>
+        </member>
+        <member name="M:Independentsoft.Webdav.PropertyCollection.Add(Independentsoft.Webdav.Property)">
+            <summary>
+            Adds a property to the collection.
+            </summary>
+            <param name="property">A property to be added.</param>
+            <returns>The index at which the value has been added.</returns>
+        </member>
+        <member name="P:Independentsoft.Webdav.PropertyCollection.Item(System.Int32)">
+            <summary>
+            Gets or sets the entry with the specified key in the collection.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.PropertyCollection.Item(Independentsoft.Webdav.PropertyName)">
+            <summary>
+            Gets or sets the element at the specified index. 
+            </summary>
+            <param name="propertyName">The propertyName.</param>
+            <returns>The value of the propertyName.</returns>
+        </member>
+        <member name="T:Independentsoft.Webdav.ProgressEventArgs">
+            <summary>
+            Holds event data for the DownloadProgress and UploadProgress events.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.ProgressEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the ProgressEventArgs class.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.ProgressEventArgs.Progress">
+            <summary>
+            Gets or sets number of downloaded/uploaded bytes.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.ProgressEventArgs.IsComplete">
+            <summary>
+            Indicates when download/upload is completed.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.ProgressEventArgs.RemoteFileUrl">
+            <summary>
+            Gets or sets remote file url.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.ProgressEventArgs.LocalFilePath">
+            <summary>
+            Gets or sets local file path.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.ProgressEventArgs.Exception">
+            <summary>
+            Gets or sets exception.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Methods.MoveMethod">
+            <summary>
+            This class implements the WebDAV MOVE Method.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Methods.MoveMethod.MethodName">
+            <summary>
+            The method name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.MoveMethod.#ctor">
+            <summary>
+            Initializes a new instance of the MoveMethod class.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.MoveMethod.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the MoveMethod class with the specified 
+            source and destination.
+            </summary>
+            <param name="source">The URI of the resource to move.</param>
+            <param name="destination">The URI of the destination resource.</param>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.MoveMethod.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the MoveMethod class with the specified 
+            source and destination and overwrite option.
+            </summary>
+            <param name="source">The URI of the resource to move.</param>
+            <param name="destination">The URI of the destination resource.</param>
+            <param name="overwrite">True to allow an existing resource to be overwritten; otherwise, false. </param>
+        </member>
+        <member name="P:Independentsoft.Webdav.Methods.MoveMethod.Source">
+            <summary>
+            Gets or sets URI of the resource to move.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Methods.MoveMethod.Destination">
+            <summary>
+            Gets or sets URI of the destination resource.
+            </summary>
+        </member>
+        <member name="P:Independentsoft.Webdav.Methods.MoveMethod.Overwrite">
+            <summary>
+            Gets or set a value indicating whether a overwrite is allowed 
+            if destination resource already exist.
+            </summary>
+        </member>
+        <member name="T:Independentsoft.Webdav.Methods.HeadMethod">
+            <summary>
+            This class implements the WebDAV HEAD Method.
+            </summary>
+        </member>
+        <member name="F:Independentsoft.Webdav.Methods.HeadMethod.MethodName">
+            <summary>
+            The method name.
+            </summary>
+        </member>
+        <member name="M:Independentsoft.Webdav.Methods.HeadMethod.#ctor">
+            <summary>
+            Initializes a new instance of the HeadMethod class.
+            </summary>
+        </member>
+    </members>
+</doc>

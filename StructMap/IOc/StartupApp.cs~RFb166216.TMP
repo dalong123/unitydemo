@@ -1,0 +1,55 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+using Microsoft.Practices.ObjectBuilder2;
+
+
+using Microsoft.Practices.ServiceLocation;
+
+
+using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Configuration;
+using System.Configuration;
+
+namespace IOc
+{
+    public  class StartupApp
+    {
+
+        public UnityContainer myContainer = new UnityContainer();
+
+        public StartupApp()
+        {
+            UnityConfigurationSection section = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
+            section.Configure(myContainer,"first");
+        }
+
+        public void RegistType()
+        {
+
+           
+
+            UnityContainer container = new UnityContainer();
+
+            container.RegisterType<IUser, User>();
+
+
+
+
+            container.RegisterInstance(typeof(IUser), new User());
+            User myuser = container.Resolve<User>();
+            Console.WriteLine("the user age is:"+ myuser.Age);
+            myuser.login();
+
+
+        }
+
+        
+
+
+    }
+}

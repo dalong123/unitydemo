@@ -1,0 +1,5 @@
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\StructMap\dalong\bin\Debug\dalong.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\StructMap\dalong\bin\Debug\dalong.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\StructMap\dalong\obj\Debug\dalong.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\StructMap\dalong\obj\Debug\dalong.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\StructMap\dalong\obj\Debug\dalong.pdb

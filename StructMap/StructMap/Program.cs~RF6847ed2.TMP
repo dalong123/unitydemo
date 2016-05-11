@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Security.Cryptography;
+using WebDAVSharp.Server.Stores.DiskStore;
+
+namespace StructMap
+{
+    class Program
+    {
+     
+
+        public static void Main()
+        {
+
+
+
+            WebDavDiskStore  store=new WebDavDiskStore("/");
+
+            WebDAVSharp.Server.WebDavServer server = new WebDAVSharp.Server.WebDavServer(store);
+
+            server.Start();
+
+            Console.ReadLine();
+
+        }
+    }
+}

@@ -1,0 +1,4 @@
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\StructMap\Ioc2\bin\Debug\Ioc2.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\StructMap\Ioc2\bin\Debug\Ioc2.pdb
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\StructMap\Ioc2\obj\Debug\Ioc2.dll
+C:\Users\Administrator\Documents\Visual Studio 2010\Projects\StructMap\Ioc2\obj\Debug\Ioc2.pdb

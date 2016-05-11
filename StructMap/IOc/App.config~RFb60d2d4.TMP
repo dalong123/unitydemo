@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+
+  <configSections>
+    <section name ="unity" type ="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection,
+            Microsoft.Practices.Unity.Configuration"/>
+  </configSections>
+
+  <unity>
+    <containers>
+
+      <container name="containerOne">
+
+        <types>
+
+          <!-- Default (un-named) mapping for IMyInterface to MyRealObject-->
+          <type type="IUser" mapTo="User" />
+
+          <!-- Named mapping for ILogger to StandardLogger-->
+          <type type="IUser" mapTo="User" name="StandarUser">
+            <lifetime type="singleton" />
+          </type>
+
+        </types>
+
+      </container>
+
+    </containers>
+
+  </unity>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+  </startup>
+</configuration>

@@ -1,0 +1,35 @@
+﻿using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace IOc
+{
+    public class UnityTwo
+    {
+
+        IUnityContainer container;
+
+
+        public UnityTwo()
+        {
+            UnityConfigurationSection section = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
+            section.Configure(container, "containerOne");
+        }
+
+        public  void firstcall()
+        {
+ 
+          var user=  container.Resolve<IUser>("StandarUser");
+
+            user
+        }
+       
+
+
+    }
+}

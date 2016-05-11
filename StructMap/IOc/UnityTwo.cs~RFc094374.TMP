@@ -1,0 +1,66 @@
+﻿using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace IOc
+{
+    public class UnityTwo
+    {
+
+        IUnityContainer container;
+        IUnityContainer container2;
+
+        public UnityTwo()
+        {
+            container = new UnityContainer();
+            container2 = new UnityContainer();
+            UnityConfigurationSection section = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
+            //  section.Configure(container, "containerOne");
+          //  container.RegisterTypes(AllClasses.FromAssemblies(), WithMappings.FromMatchingInterface,WithName.Default);
+            // container.LoadConfiguration();
+
+           section.Configure(container).Configure()
+            //  section.Containers["containerOne"].Configure(container);
+
+        }
+
+
+        public void fourth()
+        {
+          var result=  container2.Resolve<Ioc2.IUser>();
+
+
+
+        }
+        public  void firstcall()
+        {
+ 
+          var user=  container.Resolve<User>("StandarUser");
+
+            Console.WriteLine("first with name");
+            user.login();
+        }
+
+        public void secondcall()
+        {
+
+            var user = container.Resolve<User>();
+
+            Console.WriteLine("second  without name");
+            user.login();
+        }
+        public void thirdcall()
+        {
+
+            var user = container.Resolve<UserTwo>();
+
+            Console.WriteLine("thirdcall  without name");
+            user.login();
+        }
+    }
+}

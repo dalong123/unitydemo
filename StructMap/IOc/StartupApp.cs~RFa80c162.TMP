@@ -1,0 +1,42 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+using Microsoft.Practices.ObjectBuilder2;
+
+
+using Microsoft.Practices.ServiceLocation;
+
+
+using Microsoft.Practices.Unity;
+
+namespace IOc
+{
+    public  class StartupApp
+    {
+
+
+
+        public void RegistType()
+        {
+
+
+            var user = ServiceLocator.SetLocatorProvider(new ServiceLocatorProvider(service));
+
+            Console.WriteLine("the user age is:"+user.Age);
+            user.login();
+
+
+        }
+
+        public IServiceLocator service()
+        {
+            return new UnityServiceLocator(null);
+        }
+
+
+    }
+}

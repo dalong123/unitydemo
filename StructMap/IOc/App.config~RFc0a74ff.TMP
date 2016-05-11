@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration" />
+  </configSections>
+  <unity xmlns="http://schemas.microsoft.com/practices/2010/unity">
+    <namespace name="IOc" />
+    <namespace name="IOc.app" />
+    <namespace name="dalong" />
+    <assembly name="IOc" />
+    <assembly name="dalong" />
+    <assembly name="Ioc2" />
+    <alias alias="IUser" type="IOc.IUser, IUser" />
+    <alias alias="User" type="IOc.User, User" />
+    <alias alias="IUser2" type="IOc.app.Demo, Demo" />
+    <alias alias="User2" type="IOc.app.demoImple, demoImple" />
+    <alias alias="IUserdemo" type="dalong.IUser, IUser" />
+    <alias alias="User2" type="IOc.app.demoImple, demoImple" />
+    <container >
+      <register type="IUser" mapTo="User"></register>
+      <!--<register type="IUser2" mapTo="User2"></register>-->
+    </container>
+    <container  name="second">
+      <register type="IUser2" mapTo="User2"></register>
+    </container>
+    <container  name="third">
+      <register type="IUser3" mapTo="User3"></register>
+    </container>
+  </unity>
+</configuration>

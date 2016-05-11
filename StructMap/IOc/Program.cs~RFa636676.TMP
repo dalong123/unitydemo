@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace IOc
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            StartApplogin<User> start = new StartApplogin<User>();
+            var result= start.GetTypeService<User>().login();
+
+            Console.WriteLine("User service "+result);
+            
+            start.login();
+            start.login();
+            Console.ReadLine();
+
+        }
+    }
+}
